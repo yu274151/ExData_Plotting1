@@ -1,4 +1,5 @@
-# This file is called truncated.R because it only returns subset of data points from February 1st, 2007 00:00:00 and February 2nd, 2007 23:59:00
+# This file is called truncated.R because it only returns subset of data points from 
+# February 1st, 2007 00:00:00 and February 2nd, 2007 23:59:00
 # This file is called once for the entire course of plotting
 
 # Drawing upon lessons learned in Getting and Cleaning Data, will use lubridate package for better date time functionalities
