@@ -5,7 +5,7 @@
 source("plot2.R")
 source("plot3.R")
 
-# Obtaining formatted data set from plot2
+# Obtaining formatted data set from plot2; scoped_out_values is from plot2.R
 
 x_values <- scoped_out_values()
 
@@ -16,11 +16,11 @@ png("plot4.png", width=480, height=480)
 
 par(mfrow=c(2,2))
 
-# First plot is basically plot2.R
+# First plot is plot2.R
 
 plot2()
 
-# Second plot is voltage vs date time plot
+# Second plot is voltage vs date time plot; combined column is datetime
 
 plot(x_values$combined, x_values$Voltage, ylab="Voltage", xlab="datetime", type="l", col="black")
 
