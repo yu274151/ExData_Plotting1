@@ -1,3 +1,5 @@
+# Following on the spirit of separation of concern, file reading is tracked here
+
 # This file is called truncated.R because it only returns subset of data points from 
 # February 1st, 2007 00:00:00 and February 2nd, 2007 23:59:00
 # This file is called once for the entire course of plotting
@@ -15,7 +17,7 @@ library(lubridate)
 
 trunc_data <- function() {
 
-# Data reading; considering that there are 2,075,259 rows and that R can be a memory hog, will only read necessary observations only
+# Data reading; considering that there are 2,075,259 rows and that R can be a memory hog,will only read necessary observations only
 # Known fact: first observation occurred on December 16th, 2006 17:24:00
 # Our starting data point of interest is February 1st, 2007 00:00:00
 # From top of the file we will skip observations from December 16th, 2006 17:24:00 until January 31, 2007 23:59:00
@@ -35,15 +37,15 @@ minutes_to_skip <- as.duration(minutes_to_skip)
 
 minutes_to_skip <- as.numeric(minutes_to_skip) / 60 + 1
 
-# Instead of reading till end of the file, we need to read minute observations over the span of 2 days
-# There are 48 hours in 2 days; we simply multiply 48 with 60 to reach to minutes
+# Instead of reading until end of the file, we need to read minute observations over the span of 2 days
+# There are 48 hours in 2 days; we simply multiply 48 with 60 to reach into minutes
 
 to_read <- 48*60
 
 renamed_col_names <- c("Date", "Time","Global_active_power","Global_reactive_power","Voltage","Global_intensity","Sub_metering_1","Sub_metering_2","Sub_metering_3")
 
 # It's better to amend column classes through read.table for performance reason and once and for all
-# First two column classes will be read as character; remaining 7 columns will be read as numeric
+# First two column classes are character; remaining 7 will be numeric
 
 renamed_col_classes <- c("character", "character", rep("numeric", times = 7))
 
